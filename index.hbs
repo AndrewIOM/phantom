@@ -13,7 +13,16 @@
             <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
 
         </header>
-        <section class="post-excerpt">
+                    {{#if image}}
+                <section class="post-excerpt-image">
+        {{else}}
+                <section class="post-excerpt">
+            {{/if}}
+            {{#if image}}
+            <div class="thumbnail">
+                <img src="{{image}}" class="banner">
+            </div>
+            {{/if}}
             <p>{{excerpt}}&hellip;</p>
         </section>
     </article>
