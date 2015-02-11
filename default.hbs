@@ -32,8 +32,14 @@
 	{{> sidebar }}
     
 	<div class="content">
+        {{! The main content area on the homepage }}
+<main role="main">
 		{{{body}}}
+        </main>
 	</div>
+    
+    <nav class="sticky-nav">
+    </nav>
 
 	{{! ghost_foot prints a unminified version of jquery here :/ }}
 	{{!ghost_foot}}

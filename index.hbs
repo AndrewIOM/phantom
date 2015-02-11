@@ -1,29 +1,23 @@
 {{!< default}}
-
-
-{{! The main content area on the homepage }}
-<main role="main">
-
     {{! Each post will be output using this markup }}
     {{#foreach posts}}
 
     <article class="{{post_class}}">
         <header class="post-header">
-            <span class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> {{#if tags}}on {{tags}}{{/if}}</span>
-            <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+            <span class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> {{#if tags}}<span class="tags">{{tags}}</span>{{/if}}</span>
+            <h2 class="post-title"><a href="{{url}}#post">{{{title}}}</a></h2>
 
         </header>
-                    {{#if image}}
-                <section class="post-excerpt-image">
-        {{else}}
-                <section class="post-excerpt">
-            {{/if}}
-            {{#if image}}
-            <div class="thumbnail">
-                <img src="{{image}}" class="banner">
-            </div>
-            {{/if}}
-            <p>{{excerpt}}&hellip;</p>
+        {{#if image}}
+        <div class="banner-crop">
+            <img src="{{image}}">
+        </div>
+        {{/if}}
+        <section class="post-excerpt">
+            <div class="post-summary">
+                <p>{{excerpt}}&hellip;</p>
+                <a class="read-more button" href="{{url}}#post">Read More</a>
+            </div>    
         </section>
     </article>
 
@@ -31,5 +25,3 @@
 
     {{!! After all the posts, we have the previous/next pagination links }}
     {{pagination}}
-
-</main>
